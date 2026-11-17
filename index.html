@@ -1,117 +1,250 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="theme-color" content="#090909">
-<title>My Cinema</title>
+<title>MOONFLIX | Saiyaara</title>
+
 <style>
-:root{--red:#e50914;--bg:#090909;--muted:#b3b3b3}
-*{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{margin:0;background:var(--bg);color:#fff;font-family:Arial,Helvetica,sans-serif}
-a{color:inherit;text-decoration:none}
-.nav{height:72px;position:absolute;z-index:5;top:0;left:0;right:0;display:flex;align-items:center;justify-content:space-between;padding:0 5.5%;background:linear-gradient(180deg,rgba(0,0,0,.8),transparent)}
-.brand{font-size:clamp(23px,3vw,34px);font-weight:900;letter-spacing:-1.5px;color:var(--red)}
-.nav-right{font-size:13px;color:#ddd}
-.hero{min-height:590px;height:78vh;max-height:780px;position:relative;display:flex;align-items:flex-end;padding:0 5.5% 105px;background:linear-gradient(90deg,rgba(0,0,0,.92) 0%,rgba(0,0,0,.58) 45%,rgba(0,0,0,.12) 100%),linear-gradient(0deg,#090909 0%,transparent 45%),radial-gradient(ellipse at 72% 35%,#494949 0%,#202020 35%,#111 72%)}
-.hero-content{max-width:610px;position:relative;z-index:1}
-.kicker{font-size:12px;letter-spacing:3px;color:#ddd;text-transform:uppercase;margin-bottom:16px}
-h1{font-size:clamp(42px,7vw,82px);line-height:.95;margin:0 0 22px;font-weight:900;letter-spacing:-2px}
-.meta{display:flex;gap:12px;align-items:center;flex-wrap:wrap;color:#ddd;font-size:14px;margin-bottom:18px}
-.tag{border:1px solid #777;padding:2px 6px;font-size:11px}
-.description{font-size:16px;line-height:1.55;color:#e2e2e2;max-width:560px;margin:0 0 25px}
-.actions{display:flex;gap:12px;flex-wrap:wrap}
-.btn{border:0;border-radius:4px;padding:13px 23px;font-weight:700;font-size:15px;display:inline-flex;align-items:center;gap:9px;cursor:pointer}
-.btn-play{background:#fff;color:#111}.btn-play:hover{background:#ddd}
-.btn-info{background:rgba(109,109,110,.72);color:#fff}.btn-info:hover{background:rgba(109,109,110,.48)}
-.content{padding:0 5.5% 60px;margin-top:-30px;position:relative;z-index:2}
-.section-title{font-size:20px;margin:0 0 16px}
-.movie-card{width:min(100%,310px);background:#181818;border-radius:5px;overflow:hidden;box-shadow:0 8px 25px #0008}
-.thumb{height:175px;background:linear-gradient(135deg,#343434,#101010);display:grid;place-items:center;color:#aaa;font-size:13px;letter-spacing:2px}
-.card-info{padding:15px}.card-info strong{font-size:15px}.card-info p{color:var(--muted);font-size:12px;line-height:1.5;margin:8px 0 0}
-footer{border-top:1px solid #252525;padding:25px 5.5%;color:#777;font-size:12px}
-.modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.94);z-index:20;padding:5vh 4vw;align-items:center;justify-content:center}
-.modal.open{display:flex}
-.modal-inner{width:min(1100px,100%);position:relative}
-.close{position:absolute;right:0;top:-42px;background:#222;color:white;border:0;border-radius:50%;width:34px;height:34px;font-size:20px;cursor:pointer}
-.video-frame{width:100%;aspect-ratio:16/9;background:#000;border:0;border-radius:5px}
-.player-note{color:#aaa;font-size:12px;margin-top:10px}
-@media(max-width:650px){.nav{height:60px}.hero{height:76vh;min-height:560px;padding-bottom:85px}.description{font-size:14px}.content{margin-top:-18px}.btn{padding:11px 16px;font-size:13px}.movie-card{width:100%}}
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  background:#09090d;
+  color:white;
+  font-family:Arial,Helvetica,sans-serif;
+}
+header{
+  height:75px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 7%;
+  background:linear-gradient(#09090d,transparent);
+  position:absolute;
+  width:100%;
+  z-index:2;
+}
+.logo{
+  color:#e50914;
+  font-size:29px;
+  font-weight:900;
+  letter-spacing:2px;
+}
+.profile{
+  color:#ddd;
+  font-size:13px;
+  letter-spacing:1px;
+}
+.hero{
+  min-height:690px;
+  display:flex;
+  align-items:center;
+  padding:120px 8% 80px;
+  background:
+    linear-gradient(90deg,#09090d 5%,rgba(9,9,13,.88) 38%,rgba(9,9,13,.25) 100%),
+    linear-gradient(0deg,#09090d 0%,transparent 55%),
+    radial-gradient(ellipse at 75% 40%,#693b59 0%,#30202f 35%,#111018 75%);
+}
+.content{max-width:600px}
+.tag{
+  color:#e6a8c4;
+  letter-spacing:4px;
+  font-size:12px;
+  margin-bottom:22px;
+}
+h1{
+  font-size:clamp(65px,10vw,110px);
+  line-height:.95;
+  letter-spacing:-5px;
+  margin-bottom:24px;
+}
+.subtitle{
+  font-size:19px;
+  color:#e9cbd9;
+  margin-bottom:24px;
+}
+.description{
+  color:#c4c0c8;
+  line-height:1.8;
+  font-size:15px;
+  max-width:490px;
+  margin-bottom:30px;
+}
+.buttons{display:flex;gap:14px;flex-wrap:wrap}
+button{
+  border:0;
+  padding:15px 25px;
+  border-radius:5px;
+  font-size:15px;
+  font-weight:bold;
+  cursor:pointer;
+}
+.play{background:white;color:#111}
+.play:hover{background:#ddd}
+.more{background:#ffffff25;color:white}
+.details{
+  padding:20px 8% 60px;
+}
+.section-title{
+  font-size:22px;
+  margin-bottom:22px;
+}
+.movie-card{
+  max-width:340px;
+  background:#17151d;
+  border-radius:9px;
+  overflow:hidden;
+  border:1px solid #302a35;
+}
+.poster{
+  height:190px;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  background:linear-gradient(135deg,#75435e,#251b2d 65%,#111);
+}
+.poster span{
+  font-size:38px;
+  font-weight:900;
+  letter-spacing:3px;
+}
+.card-info{padding:20px}
+.card-info h3{margin-bottom:9px}
+.card-info p{color:#aaa;font-size:13px;line-height:1.7}
+footer{
+  text-align:center;
+  padding:35px 15px;
+  color:#777;
+  font-size:12px;
+  border-top:1px solid #222;
+}
+.modal{
+  display:none;
+  position:fixed;
+  inset:0;
+  background:#000e;
+  z-index:10;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+.modal-box{
+  width:100%;
+  max-width:1000px;
+  background:#111;
+  border-radius:10px;
+  overflow:hidden;
+}
+.modal-head{
+  padding:15px 20px;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+}
+.close{
+  color:white;
+  background:#333;
+  padding:8px 13px;
+}
+iframe{
+  width:100%;
+  height:min(65vw,560px);
+  border:0;
+  display:block;
+}
+@media(max-width:600px){
+  header{padding:0 6%}
+  .hero{min-height:650px;padding:110px 7% 70px}
+  h1{letter-spacing:-3px}
+  .details{padding-left:7%;padding-right:7%}
+}
 </style>
 </head>
+
 <body>
-<header class="nav">
-  <a class="brand" href="#">MY CINEMA</a>
-  <div class="nav-right">PERSONAL MOVIE NIGHT</div>
+
+<header>
+  <div class="logo">MOONFLIX</div>
+  <div class="profile">ANIKAPPU'S PRIVATE CINEMA ♥</div>
 </header>
 
 <section class="hero">
-  <div class="hero-content">
-    <div class="kicker">A featured presentation</div>
-    <h1 id="movieTitle">YOUR MOVIE</h1>
-    <div class="meta"><span>2026</span><span class="tag">HD</span><span>Movie</span><span>Private screening</span></div>
-    <p class="description" id="movieDescription">Your personal movie night starts here. Press Play to watch the film in your browser.</p>
-    <div class="actions">
-      <button class="btn btn-play" onclick="openPlayer()">▶ &nbsp; Play</button>
-      <button class="btn btn-info" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'})">ⓘ &nbsp; More Info</button>
+  <div class="content">
+    <div class="tag">A PRIVATE MOVIE NIGHT</div>
+
+    <h1>SAIYAARA</h1>
+
+    <div class="subtitle">
+      This one is specially for you, Anikappu. ❤️
+    </div>
+
+    <p class="description">
+      Some movies are more than just stories.
+      They're feelings, memories and moments
+      worth sharing. Sit back, relax and enjoy
+      your special movie night.
+    </p>
+
+    <div class="buttons">
+      <button class="play" onclick="openMovie()">▶ Play Movie</button>
+      <button class="more" onclick="document.getElementById('details').scrollIntoView({behavior:'smooth'})">
+        More Info
+      </button>
     </div>
   </div>
 </section>
 
-<main class="content" id="details">
-  <h2 class="section-title">Continue Watching</h2>
-  <article class="movie-card">
-    <div class="thumb">MY CINEMA</div>
-    <div class="card-info">
-      <strong id="cardTitle">Your Movie</strong>
-      <p>Press Play to start streaming. Playback quality and smoothness depend on the video host and internet connection.</p>
+<section class="details" id="details">
+  <h2 class="section-title">Featured for Anikappu</h2>
+
+  <div class="movie-card">
+    <div class="poster">
+      <span>SAIYAARA</span>
     </div>
-  </article>
-</main>
+    <div class="card-info">
+      <h3>Saiyaara</h3>
+      <p>
+        A special screening, just for you.
+        Your own private cinema experience.
+      </p>
+    </div>
+  </div>
+</section>
 
-<footer>MY CINEMA · A personal movie page</footer>
+<footer>
+  MADE WITH LOVE ♥ FOR ANIKAPPU
+  <br><br>
+  MOONFLIX · YOUR PRIVATE CINEMA
+</footer>
 
-<div class="modal" id="playerModal" role="dialog" aria-modal="true" aria-label="Movie player">
-  <div class="modal-inner">
-    <button class="close" onclick="closePlayer()" aria-label="Close player">×</button>
-    <iframe class="video-frame" id="drivePlayer" src="" allow="autoplay; fullscreen" allowfullscreen referrerpolicy="no-referrer"></iframe>
-    <div class="player-note">If playback does not start, make sure the Google Drive file is shared with the viewer and processing is complete.</div>
+<div class="modal" id="movieModal">
+  <div class="modal-box">
+    <div class="modal-head">
+      <strong>NOW PLAYING · SAIYAARA</strong>
+      <button class="close" onclick="closeMovie()">✕ Close</button>
+    </div>
+
+    <iframe
+      id="movieFrame"
+      src=""
+      allow="autoplay; fullscreen"
+      allowfullscreen>
+    </iframe>
   </div>
 </div>
 
 <script>
-// 1) Replace the value below with your Google Drive file ID.
-// Example share link: https://drive.google.com/file/d/FILE_ID_HERE/view
-const DRIVE_FILE_ID = "1WxBj3v25Ze7d5gxRaPIXBpbfK_aJn3aE";
-
-// 2) Edit the movie title and description if you want.
-const MOVIE_TITLE = "YOUR MOVIE";
-const MOVIE_DESCRIPTION = "Your personal movie night starts here. Press Play to watch the film in your browser.";
-
-document.getElementById("movieTitle").textContent = MOVIE_TITLE;
-document.getElementById("cardTitle").textContent = MOVIE_TITLE;
-document.getElementById("movieDescription").textContent = MOVIE_DESCRIPTION;
-
-function openPlayer(){
-  if(!DRIVE_FILE_ID || DRIVE_FILE_ID.includes("PASTE_")){
-    alert("First add your Google Drive file ID inside index.html.");
-    return;
-  }
-  document.getElementById("drivePlayer").src =
-    "https://drive.google.com/file/d/" + encodeURIComponent(DRIVE_FILE_ID) + "/preview";
-  document.getElementById("playerModal").classList.add("open");
+function openMovie(){
+  document.getElementById('movieModal').style.display='flex';
+  document.getElementById('movieFrame').src=
+  'https://drive.google.com/file/d/1WxBj3v25Ze7d5gxRaPIXBpbfK_aJn3aE/preview';
 }
-function closePlayer(){
-  document.getElementById("playerModal").classList.remove("open");
-  document.getElementById("drivePlayer").src = "";
+
+function closeMovie(){
+  document.getElementById('movieModal').style.display='none';
+  document.getElementById('movieFrame').src='';
 }
-document.getElementById("playerModal").addEventListener("click",function(e){
-  if(e.target===this) closePlayer();
-});
-document.addEventListener("keydown",function(e){
-  if(e.key==="Escape") closePlayer();
-});
 </script>
+
 </body>
 </html>
